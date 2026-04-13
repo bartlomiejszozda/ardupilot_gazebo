@@ -2,6 +2,11 @@
 FRAME_CLASS	     1
 FRAME_TYPE	     1
 
+# Disable all external RTC time sources (GPS, MAVLink system time, HW).
+# Without this, GPS lock causes AP to adopt real-world UTC time, which
+# diverges from Gazebo /clock, breaking /ap/v1/clock sync.
+BRD_RTC_TYPES	    0
+
 # Match servo out for motors
 MOT_PWM_MIN      1100
 MOT_PWM_MAX      1900
